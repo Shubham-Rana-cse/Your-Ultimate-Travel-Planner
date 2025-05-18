@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destination Details - Indian Travel Planner</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/destination-detail.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">Indian Travel Planner</a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="planner.html" class="nav-link">Trip Planner</a>
+          <a href="itineraries.html" class="nav-link">My Itineraries</a>
+          <a href="explore.html" class="nav-link active">Explore</a>
+        </nav>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun light-icon"></i>
+            <i class="fas fa-moon dark-icon"></i>
+          </button>
+          <a href="login.html" class="btn btn-outline">Login</a>
+          <a href="signup.html" class="btn btn-primary">Sign Up</a>
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu (hidden by default) -->
+      <div class="mobile-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="planner.html" class="mobile-link">Trip Planner</a>
+        <a href="itineraries.html" class="mobile-link">My Itineraries</a>
+        <a href="explore.html" class="mobile-link active">Explore</a>
+        <div class="mobile-actions">
+          <a href="login.html" class="btn btn-outline btn-full">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-full">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="back-link">
+      <a href="explore.html">
+        <i class="fas fa-arrow-left"></i> Back to Explore
+      </a>
+    </div>
+
+    <div class="destination-detail">
+      <div class="destination-main">
+        <div class="destination-image">
+          <img src="images/delhi.png" alt="Delhi, India" id="destination-img">
+        </div>
+
+        <div class="destination-header">
+          <div>
+            <h1 id="destination-name">Delhi</h1>
+            <p class="destination-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span id="destination-country">India</span>
+            </p>
+          </div>
+          <div class="destination-rating">
+            <i class="fas fa-star"></i>
+            <span id="destination-rating">4.7</span>
+          </div>
+        </div>
+
+        <div class="destination-description">
+          <p id="destination-long-description">Delhi, India's capital territory, is a massive metropolitan area in the country's north. In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India, and the sprawling Jama Masjid mosque, whose courtyard accommodates 25,000 people. Nearby is Chandni Chowk, a vibrant bazaar filled with food carts, sweets shops and spice stalls.</p>
+        </div>
+
+        <div class="destination-info-cards">
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="info-card-content">
+              <h3>Best Time to Visit</h3>
+              <p id="destination-best-time">October to March</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-temperature-high"></i>
+            </div>
+            <div class="info-card-content">
+              <h3>Average Temperature</h3>
+              <p id="destination-temperature">Summer: 25-45°C, Winter: 5-25°C</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="destination-tabs">
+          <div class="tab-buttons">
+            <button class="tab-button active" data-tab="attractions">Attractions</button>
+            <button class="tab-button" data-tab="hotels">Hotels</button>
+            <button class="tab-button" data-tab="restaurants">Restaurants</button>
+          </div>
+
+          <div class="tab-content active" id="attractions-tab">
+            <div class="attractions-grid">
+              <div class="attraction-card">
+                <h3>Red Fort</h3>
+                <p>Historic red sandstone fort built in the 17th century</p>
+                <div class="attraction-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Netaji Subhash Marg, Lal Qila</span>
+                </div>
+              </div>
+              <div class="attraction-card">
+                <h3>Qutub Minar</h3>
+                <p>UNESCO World Heritage Site with a 73-meter tall minaret</p>
+                <div class="attraction-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Mehrauli</span>
+                </div>
+              </div>
+              <div class="attraction-card">
+                <h3>India Gate</h3>
+                <p>War memorial dedicated to soldiers of the British Indian Army</p>
+                <div class="attraction-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Rajpath</span>
+                </div>
+              </div>
+              <div class="attraction-card">
+                <h3>Humayun's Tomb</h3>
+                <p>Tomb of the Mughal Emperor Humayun</p>
+                <div class="attraction-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Mathura Road, Nizamuddin East</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="hotels-tab">
+            <div class="hotels-grid">
+              <div class="hotel-card">
+                <div class="hotel-header">
+                  <h3>The Imperial</h3>
+                  <div class="hotel-rating">
+                    <i class="fas fa-star"></i>
+                    <span>5</span>
+                  </div>
+                </div>
+                <div class="hotel-price">
+                  <i class="fas fa-hotel"></i>
+                  <span>₹₹₹₹</span>
+                </div>
+              </div>
+              <div class="hotel-card">
+                <div class="hotel-header">
+                  <h3>The Leela Palace</h3>
+                  <div class="hotel-rating">
+                    <i class="fas fa-star"></i>
+                    <span>5</span>
+                  </div>
+                </div>
+                <div class="hotel-price">
+                  <i class="fas fa-hotel"></i>
+                  <span>₹₹₹₹</span>
+                </div>
+              </div>
+              <div class="hotel-card">
+                <div class="hotel-header">
+                  <h3>The Taj Mahal Hotel</h3>
+                  <div class="hotel-rating">
+                    <i class="fas fa-star"></i>
+                    <span>5</span>
+                  </div>
+                </div>
+                <div class="hotel-price">
+                  <i class="fas fa-hotel"></i>
+                  <span>₹₹₹</span>
+                </div>
+              </div>
+              <div class="hotel-card">
+                <div class="hotel-header">
+                  <h3>The Claridges</h3>
+                  <div class="hotel-rating">
+                    <i class="fas fa-star"></i>
+                    <span>4</span>
+                  </div>
+                </div>
+                <div class="hotel-price">
+                  <i class="fas fa-hotel"></i>
+                  <span>₹₹</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="restaurants-tab">
+            <div class="restaurants-grid">
+              <div class="restaurant-card">
+                <h3>Indian Accent</h3>
+                <div class="restaurant-cuisine">
+                  <i class="fas fa-utensils"></i>
+                  <span>Modern Indian</span>
+                </div>
+                <div class="restaurant-price">Price: ₹₹₹₹</div>
+              </div>
+              <div class="restaurant-card">
+                <h3>Bukhara</h3>
+                <div class="restaurant-cuisine">
+                  <i class="fas fa-utensils"></i>
+                  <span>North Indian</span>
+                </div>
+                <div class="restaurant-price">Price: ₹₹₹</div>
+              </div>
+              <div class="restaurant-card">
+                <h3>Karim's</h3>
+                <div class="restaurant-cuisine">
+                  <i class="fas fa-utensils"></i>
+                  <span>Mughlai</span>
+                </div>
+                <div class="restaurant-price">Price: ₹₹</div>
+              </div>
+              <div class="restaurant-card">
+                <h3>Saravana Bhavan</h3>
+                <div class="restaurant-cuisine">
+                  <i class="fas fa-utensils"></i>
+                  <span>South Indian</span>
+                </div>
+                <div class="restaurant-price">Price: ₹</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="destination-map">
+          <h2>Location</h2>
+          <div id="map" class="map">
+            <!-- Map will be loaded here -->
+            <div class="map-placeholder">
+              <i class="fas fa-map-marked-alt"></i>
+              <p>Map loading...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="plan-trip-cta">
+          <a href="planner.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-ticket-alt"></i> Plan a Trip to <span id="destination-cta-name">Delhi</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="destination-sidebar">
+        <div class="sidebar-card">
+          <h3>Quick Info</h3>
+          <div class="quick-info">
+            <div class="info-item">
+              <p class="info-label">Category</p>
+              <div class="info-badge" id="destination-category">city</div>
+            </div>
+            <div class="info-item">
+              <p class="info-label">Best Season</p>
+              <div class="info-badge outline" id="destination-season">winter</div>
+            </div>
+            <div class="info-item">
+              <p class="info-label">Popular For</p>
+              <div class="info-badges" id="destination-popular-for">
+                <div class="info-badge secondary">Red Fort</div>
+                <div class="info-badge secondary">India Gate</div>
+                <div class="info-badge secondary">Qutub Minar</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Nearby Destinations</h3>
+          <div class="nearby-destinations">
+            <a href="destination-detail.html?id=8" class="nearby-destination">
+              <div class="nearby-destination-image">
+                <img src="images/agra.png" alt="Agra">
+              </div>
+              <div class="nearby-destination-info">
+                <h4>Agra</h4>
+                <p>India</p>
+              </div>
+            </a>
+            <a href="destination-detail.html?id=2" class="nearby-destination">
+              <div class="nearby-destination-image">
+                <img src="images/jaipur.png" alt="Jaipur">
+              </div>
+              <div class="nearby-destination-info">
+                <h4>Jaipur</h4>
+                <p>India</p>
+              </div>
+            </a>
+            <a href="destination-detail.html?id=7" class="nearby-destination">
+              <div class="nearby-destination-image">
+                <img src="images/mumbai.png" alt="Mumbai">
+              </div>
+              <div class="nearby-destination-info">
+                <h4>Mumbai</h4>
+                <p>India</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Indian Travel Planner</h3>
+          <p>Your ultimate guide to exploring the diverse beauty of India.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="planner.html">Trip Planner</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="itineraries.html">My Itineraries</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Travel Guide</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: info@indiantravelplanner.com</p>
+          <p>Phone: +91 123 456 7890</p>
+          <p>Address: 123 Travel Street, New Delhi, India</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Indian Travel Planner. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/destination-detail.js"></script>
+</body>
+</html>

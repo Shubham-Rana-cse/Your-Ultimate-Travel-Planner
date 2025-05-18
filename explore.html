@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Destinations - Indian Travel Planner</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/explore.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">Indian Travel Planner</a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="planner.html" class="nav-link">Trip Planner</a>
+          <a href="itineraries.html" class="nav-link">My Itineraries</a>
+          <a href="explore.html" class="nav-link active">Explore</a>
+        </nav>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun light-icon"></i>
+            <i class="fas fa-moon dark-icon"></i>
+          </button>
+          <a href="login.html" class="btn btn-outline">Login</a>
+          <a href="signup.html" class="btn btn-primary">Sign Up</a>
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu (hidden by default) -->
+      <div class="mobile-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="planner.html" class="mobile-link">Trip Planner</a>
+        <a href="itineraries.html" class="mobile-link">My Itineraries</a>
+        <a href="explore.html" class="mobile-link active">Explore</a>
+        <div class="mobile-actions">
+          <a href="login.html" class="btn btn-outline btn-full">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-full">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h1 class="page-title">Explore Destinations</h1>
+
+    <div class="search-container">
+      <input type="text" id="destination-search" placeholder="Search for destinations..." class="search-input">
+      <i class="fas fa-search search-icon"></i>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">
+        <i class="fas fa-globe"></i> All
+      </button>
+      <button class="filter-tab" data-filter="city">
+        <i class="fas fa-city"></i> Cities
+      </button>
+      <button class="filter-tab" data-filter="beach">
+        <i class="fas fa-umbrella-beach"></i> Beaches
+      </button>
+      <button class="filter-tab" data-filter="mountain">
+        <i class="fas fa-mountain"></i> Mountains
+      </button>
+      <button class="filter-tab" data-filter="cultural">
+        <i class="fas fa-landmark"></i> Cultural
+      </button>
+    </div>
+
+    <div class="filter-tags">
+      <button class="filter-tag" data-season="summer">
+        <i class="fas fa-sun"></i> Summer
+      </button>
+      <button class="filter-tag" data-season="winter">
+        <i class="fas fa-snowflake"></i> Winter
+      </button>
+      <button class="filter-tag" data-feature="popular">Popular</button>
+      <button class="filter-tag" data-feature="family">Family-friendly</button>
+      <button class="filter-tag" data-budget="budget">Budget</button>
+      <button class="filter-tag" data-budget="luxury">Luxury</button>
+    </div>
+
+    <div class="destinations-grid">
+      <!-- Delhi -->
+      <div class="destination-card" data-category="city" data-season="winter">
+        <div class="destination-image">
+          <img src="C:\Users\Shubham Rana\Desktop\Your ultimate travel companion\Source Code\Images\india-gate.jpeg" alt="Delhi, India">
+        </div>
+        <div class="destination-content">
+          <div class="destination-header">
+            <div>
+              <h3>Delhi</h3>
+              <p class="destination-location">India</p>
+            </div>
+            <div class="destination-rating">
+              <i class="fas fa-star"></i>
+              <span>4.7</span>
+            </div>
+          </div>
+          <p class="destination-description">India's capital with a perfect blend of historical monuments and modern architecture.</p>
+          <a href="destination-detail.html?id=1" class="btn btn-outline btn-sm">View Details</a>
+        </div>
+      </div>
+
+      <!-- Jaipur -->
+      <div class="destination-card" data-category="cultural" data-season="winter">
+        <div class="destination-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/500px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg" alt="Jaipur, India">
+        </div>
+        <div class="destination-content">
+          <div class="destination-header">
+            <div>
+              <h3>Jaipur</h3>
+              <p class="destination-location">India</p>
+            </div>
+            <div class="destination-rating">
+              <i class="fas fa-star"></i>
+              <span>4.8</span>
+            </div>
+          </div>
+          <p class="destination-description">The Pink City known for its stunning palaces, forts, and vibrant culture.</p>
+          <a href="destination-detail.html?id=2" class="btn btn-outline btn-sm">View Details</a>
+        </div>
+      </div>
+
+      <!-- Goa -->
+      <div class="destination-card" data-category="beach" data-season="winter">
+        <div class="destination-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/BeachFun.jpg/500px-BeachFun.jpg" alt="Goa, India">
+        </div>
+        <div class="destination-content">
+          <div class="destination-header">
+            <div>
+              <h3>Goa</h3>
+              <p class="destination-location">India</p>
+            </div>
+            <div class="destination-rating">
+              <i class="fas fa-star"></i>
+              <span>4.9</span>
+            </div>
+          </div>
+          <p class="destination-description">Beautiful beaches, vibrant nightlife, and Portuguese-influenced architecture.</p>
+          <a href="destination-detail.html?id=3" class="btn btn-outline btn-sm">View Details</a>
+        </div>
+      </div>
+
+      <!-- Varanasi -->
+      <div class="destination-card" data-category="cultural" data-season="winter">
+        <div class="destination-image">
+          <img src="https://s7ap1.scene7.com/is/image/incredibleindia/manikarnika-ghat-city-hero?qlt=82&ts=1727959374496" alt="Varanasi, India">
+        </div>
+        <div class="destination-content">
+          <div class="destination-header">
+            <div>
+              <h3>Varanasi</h3>
+              <p class="destination-location">India</p>
+            </div>
+            <div class="destination-rating">
+              <i class="fas fa-star"></i>
+              <span>4.6</span>
+            </div>
+          </div>
+          <p class="destination-description">One of the world's oldest living cities with spiritual ghats along the Ganges.</p>
+          <a href="destination-detail.html?id=4" class="btn btn-outline btn-sm">View Details</a>
+        </div>
+      </div>
+
+      <!-- Darjeeling -->
+      <div class="destination-card" data-category="mountain" data-season="summer">
+        <div class="destination-image">
+          <img src="https://hikerwolf.com/wp-content/uploads/2020/04/Darjeeling-toy-train-route.jpg" alt="Darjeeling, India">
+        </div>
+        <div class="destination-content">
+          <div class="destination-header">
+            <div>
+              <h3>Darjeeling</h3>
+              <p class="destination-location">India</p>
+            </div>
+            <div class="destination-rating">
+              <i class="fas fa-star"></i>
+              <span>4.7</span>
+            </div>
+          </div>
+          <p class="destination-description">Famous for its tea plantations, stunning Himalayan views, and the Darjeeling Himalayan Railway.</p>
+          <a href="destination-detail.html?id=5" class="btn btn-outline btn-sm">View Details</a>
+        </div>
+      </div>
+
+      <!-- Rishikesh -->
+      <div class="destination-card" data-category="mountain" data-season="spring">
+        <div class="destination-image">
+          <img src="https://invisit.in/images/destination/uttarakhand/rishikesh-thumb.jpg" alt="Rishikesh, India">
+        </div>
+        <div class="destination-content">
+          <div class="destination-header">
+            <div>
+              <h3>Rishikesh</h3>
+              <p class="destination-location">India</p>
+            </div>
+            <div class="destination-rating">
+              <i class="fas fa-star"></i>
+              <span>4.8</span>
+            </div>
+          </div>
+          <p class="destination-description">The 'Yoga Capital of the World' with beautiful temples and adventure activities.</p>
+          <a href="destination-detail.html?id=6" class="btn btn-outline btn-sm">View Details</a>
+        </div>
+      </div>
+
+      <!-- Mumbai -->
+      <div class="destination-card" data-category="city" data-season="winter">
+        <div class="destination-image">
+          <img src="https://www.holidaymonk.com/wp-content/uploads/2022/04/Gateway-Of-India-MUMBAI.jpg" alt="Mumbai, India">
+        </div>
+        <div class="destination-content">
+          <div class="destination-header">
+            <div>
+              <h3>Mumbai</h3>
+              <p class="destination-location">India</p>
+            </div>
+            <div class="destination-rating">
+              <i class="fas fa-star"></i>
+              <span>4.7</span>
+            </div>
+          </div>
+          <p class="destination-description">India's financial capital with a vibrant culture, colonial architecture, and Bollywood.</p>
+          <a href="destination-detail.html?id=7" class="btn btn-outline btn-sm">View Details</a>
+        </div>
+      </div>
+
+      <!-- Agra -->
+      <div class="destination-card" data-category="cultural" data-season="winter">
+        <div class="destination-image">
+          <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0c/11/a4/ae.jpg" alt="Agra, India">
+        </div>
+        <div class="destination-content">
+          <div class="destination-header">
+            <div>
+              <h3>Agra</h3>
+              <p class="destination-location">India</p>
+            </div>
+            <div class="destination-rating">
+              <i class="fas fa-star"></i>
+              <span>4.9</span>
+            </div>
+          </div>
+          <p class="destination-description">Home to the iconic Taj Mahal, Agra Fort, and Fatehpur Sikri.</p>
+          <a href="destination-detail.html?id=8" class="btn btn-outline btn-sm">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagination">
+      <button class="pagination-btn" disabled>
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="pagination-btn active">1</button>
+      <button class="pagination-btn">2</button>
+      <button class="pagination-btn">3</button>
+      <button class="pagination-btn">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Indian Travel Planner</h3>
+          <p>Your ultimate guide to exploring the diverse beauty of India.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="planner.html">Trip Planner</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="itineraries.html">My Itineraries</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Travel Guide</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: info@indiantravelplanner.com</p>
+          <p>Phone: +91 123 456 7890</p>
+          <p>Address: 123 Travel Street, New Delhi, India</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Indian Travel Planner. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/explore.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+/* Authentication Pages Styles */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 300px);
+  padding: 40px 0;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.auth-header {
+  padding: 30px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.auth-header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.auth-header p {
+  color: var(--text-light);
+}
+
+.auth-content {
+  padding: 30px;
+}
+
+.auth-form {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.password-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.forgot-password {
+  font-size: 14px;
+  color: var(--primary-color);
+}
+
+.form-hint {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input {
+  width: auto;
+  margin-right: 10px;
+}
+
+.error-message {
+  padding: 10px 15px;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-left: 3px solid red;
+  color: red;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.auth-footer {
+  padding: 20px 30px;
+  text-align: center;
+  background-color: var(--background-alt);
+  border-top: 1px solid var(--border-color);
+}
+
+.auth-footer p {
+  color: var(--text-light);
+}
+
+.auth-footer a {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .auth-container {
+    padding: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .auth-header,
+  .auth-content,
+  .auth-footer {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,229 @@
+/* Explore Page Styles */
+.page-title {
+  font-size: 36px;
+  margin: 40px 0 30px;
+  text-align: center;
+}
+
+.search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px 20px;
+  padding-right: 50px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+}
+
+.filter-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filter-tab {
+  padding: 10px 20px;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-tab i {
+  margin-right: 5px;
+}
+
+.filter-tab:hover,
+.filter-tab.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.filter-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.filter-tag {
+  padding: 6px 12px;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-tag i {
+  margin-right: 3px;
+}
+
+.filter-tag:hover,
+.filter-tag.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.destination-card {
+  background-color: var(--background-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.destination-image {
+  height: 180px;
+  overflow: hidden;
+}
+
+.destination-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.destination-card:hover .destination-image img {
+  transform: scale(1.05);
+}
+
+.destination-content {
+  padding: 20px;
+}
+
+.destination-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.destination-header h3 {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.destination-location {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.destination-rating {
+  display: flex;
+  align-items: center;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.destination-rating i {
+  margin-right: 5px;
+}
+
+.destination-description {
+  color: var(--text-light);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 60px;
+}
+
+.pagination-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.pagination-btn:hover,
+.pagination-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 28px;
+    margin: 30px 0 20px;
+  }
+
+  .filter-tabs,
+  .filter-tags {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .filter-tab,
+  .filter-tag {
+    white-space: nowrap;
+  }
+
+  .destinations-grid {
+    gap: 20px;
+  }
+
+  .destination-image {
+    height: 160px;
+  }
+
+  .destination-content {
+    padding: 15px;
+  }
+}

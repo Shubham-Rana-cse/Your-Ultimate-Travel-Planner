@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Planner - Indian Travel Planner</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/planner.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">Indian Travel Planner</a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="planner.html" class="nav-link active">Trip Planner</a>
+          <a href="itineraries.html" class="nav-link">My Itineraries</a>
+          <a href="explore.html" class="nav-link">Explore</a>
+        </nav>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun light-icon"></i>
+            <i class="fas fa-moon dark-icon"></i>
+          </button>
+          <a href="login.html" class="btn btn-outline">Login</a>
+          <a href="signup.html" class="btn btn-primary">Sign Up</a>
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu (hidden by default) -->
+      <div class="mobile-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="planner.html" class="mobile-link active">Trip Planner</a>
+        <a href="itineraries.html" class="mobile-link">My Itineraries</a>
+        <a href="explore.html" class="mobile-link">Explore</a>
+        <div class="mobile-actions">
+          <a href="login.html" class="btn btn-outline btn-full">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-full">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="planner-header">
+      <h1>Plan Your Trip</h1>
+      <p>Create your perfect travel itinerary in a few simple steps. Choose your destinations, travel dates, and preferences, and we'll help you build an amazing trip.</p>
+    </div>
+
+    <div class="planner-card">
+      <div class="planner-tabs">
+        <button class="tab-btn active" data-tab="destinations">Destinations</button>
+        <button class="tab-btn" data-tab="dates">Dates</button>
+        <button class="tab-btn" data-tab="travelers">Travelers</button>
+        <button class="tab-btn" data-tab="preferences">Preferences</button>
+        <button class="tab-btn" data-tab="itinerary">Itinerary</button>
+      </div>
+
+      <div class="tab-content">
+        <!-- Destinations Tab -->
+        <div class="tab-pane active" id="destinations-tab">
+          <div class="tab-pane-content">
+            <h2>Where do you want to go?</h2>
+            <div class="search-container">
+              <input type="text" id="destination-search" placeholder="Search for a city or country..." class="search-input">
+              <i class="fas fa-search search-icon"></i>
+            </div>
+
+            <div id="selected-destinations" class="selected-destinations">
+              <!-- Selected destinations will be added here dynamically -->
+            </div>
+
+            <h3>Popular destinations</h3>
+            <div class="popular-destinations">
+              <div class="destination-option" data-destination="Delhi, India">
+                <div class="destination-option-image">
+                  <img src="C:\Users\Shubham Rana\Desktop\Your ultimate travel companion\Source Code\Images\india-gate.jpeg" alt="Delhi">
+                </div>
+                <p>Delhi, India</p>
+              </div>
+              <div class="destination-option" data-destination="Mumbai, India">
+                <div class="destination-option-image">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Mumbai_03-2016_30_Gateway_of_India.jpg/250px-Mumbai_03-2016_30_Gateway_of_India.jpg" alt="Mumbai">
+                </div>
+                <p>Mumbai, India</p>
+              </div>
+              <div class="destination-option" data-destination="Jaipur, India">
+                <div class="destination-option-image">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/500px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg" alt="Jaipur">
+                </div>
+                <p>Jaipur, India</p>
+              </div>
+              <div class="destination-option" data-destination="Goa, India">
+                <div class="destination-option-image">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/BeachFun.jpg/500px-BeachFun.jpg" alt="Goa">
+                </div>
+                <p>Goa, India</p>
+              </div>
+              <div class="destination-option" data-destination="Varanasi, India">
+                <div class="destination-option-image">
+                  <img src="https://s7ap1.scene7.com/is/image/incredibleindia/manikarnika-ghat-city-hero?qlt=82&ts=1727959374496" alt="Varanasi">
+                </div>
+                <p>Varanasi, India</p>
+              </div>
+              <div class="destination-option" data-destination="Agra, India">
+                <div class="destination-option-image">
+                  <img src="https://www.onthegotours.com/repository/The-Taj-Mahal--India-Tours--On-The-Go-Tours-298431462895266.jpg" alt="Agra">
+                </div>
+                <p>Agra, India</p>
+              </div>
+              <div class="destination-option" data-destination="Darjeeling, India">
+                <div class="destination-option-image">
+                  <img src="https://hikerwolf.com/wp-content/uploads/2020/04/Darjeeling-toy-train-route.jpg" alt="Darjeeling">
+                </div>
+                <p>Darjeeling, India</p>
+              </div>
+              <div class="destination-option" data-destination="Udaipur, India">
+                <div class="destination-option-image">
+                  <img src="https://www.india.com/wp-content/uploads/2025/04/udaipurstory.jpg" alt="Udaipur">
+                </div>
+                <p>Udaipur, India</p>
+              </div>
+              <div class="destination-option" data-destination="Rishikesh, India">
+                <div class="destination-option-image">
+                  <img src="https://invisit.in/images/destination/uttarakhand/rishikesh-thumb.jpg" alt="Rishikesh">
+                </div>
+                <p>Rishikesh, India</p>
+              </div>
+              <div class="destination-option" data-destination="Amritsar, India">
+                <div class="destination-option-image">
+                  <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/09/c4/09/c0.jpg" alt="Amritsar">
+                </div>
+                <p>Amritsar, India</p>
+              </div>
+              <div class="destination-option" data-destination="Shimla, India">
+                <div class="destination-option-image">
+                  <img src="https://nvrtravels.in/wp-content/uploads/2024/01/pti28-12-2020-000048b-1609160104.jpg" alt="Shimla">
+                </div>
+                <p>Shimla, India</p>
+              </div>
+              <div class="destination-option" data-destination="Kochi, India">
+                <div class="destination-option-image">
+                  <img src="https://media.assettype.com/outlooktraveller%2F2024-01%2Fd868899f-c25f-4fc6-ad45-a3567f5434e4%2Fshutterstock_2035341371.jpg?w=480&auto=format%2Ccompress&fit=max" alt="Kochi">
+                </div>
+                <p>Kochi, India</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Dates Tab -->
+        <div class="tab-pane" id="dates-tab">
+          <div class="tab-pane-content">
+            <h2>When are you traveling?</h2>
+            <p class="tab-description">Select your travel dates to help us plan your perfect itinerary.</p>
+            
+            <div class="dates-container">
+              <div class="calendar-container">
+                <div id="date-picker" class="date-picker"></div>
+              </div>
+              
+              <div class="trip-summary">
+                <h3>Trip Summary</h3>
+                <div class="summary-item">
+                  <p class="summary-label">Start Date</p>
+                  <p id="start-date" class="summary-value">Not selected</p>
+                </div>
+                <div class="summary-item">
+                  <p class="summary-label">End Date</p>
+                  <p id="end-date" class="summary-value">Not selected</p>
+                </div>
+                <div class="summary-item">
+                  <p class="summary-label">Duration</p>
+                  <p id="trip-duration" class="summary-value">Not calculated</p>
+                </div>
+                
+                <div class="weather-forecast">
+                  <h3>Weather Forecast</h3>
+                  <div id="weather-forecast-container">
+                    <p class="weather-note">Select your dates to see the weather forecast for your destinations.</p>
+                  </div>
+                </div>
+                
+                <div class="trip-tip">
+                  <p><strong>Tip:</strong> For the best experience, we recommend planning trips at least 2 weeks in advance to get the best availability and prices.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Travelers Tab -->
+        <div class="tab-pane" id="travelers-tab">
+          <div class="tab-pane-content">
+            <h2>Who's traveling with you?</h2>
+            <p class="tab-description">Let us know how many people are in your group to help with accommodation and activity recommendations.</p>
+            
+            <div class="travelers-form">
+              <div class="form-group">
+                <label for="adults-input">
+                  <i class="fas fa-user"></i>
+                  Adults (18+)
+                </label>
+                <div class="number-input">
+                  <button type="button" class="number-decrement">-</button>
+                  <input type="number" id="adults-input" min="1" value="2" class="form-input">
+                  <button type="button" class="number-increment">+</button>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="children-input">
+                  <i class="fas fa-child"></i>
+                  Children (0-17)
+                </label>
+                <div class="number-input">
+                  <button type="button" class="number-decrement">-</button>
+                  <input type="number" id="children-input" min="0" value="0" class="form-input">
+                  <button type="button" class="number-increment">+</button>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="rooms-input">
+                  <i class="fas fa-door-open"></i>
+                  Rooms
+                </label>
+                <div class="number-input">
+                  <button type="button" class="number-decrement">-</button>
+                  <input type="number" id="rooms-input" min="1" value="1" class="form-input">
+                  <button type="button" class="number-increment">+</button>
+                </div>
+              </div>
+              
+              <div class="travelers-tips">
+                <h3>Travel Group Tips</h3>
+                <ul>
+                  <li>• For families with children, look for family-friendly accommodations and activities</li>
+                  <li>• Larger groups may benefit from vacation rentals instead of multiple hotel rooms</li>
+                  <li>• Solo travelers can join group tours to meet other travelers</li>
+                  <li>• Couples might enjoy romantic dining options and private experiences</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Preferences Tab -->
+        <div class="tab-pane" id="preferences-tab">
+          <div class="tab-pane-content">
+            <h2>Your Travel Preferences</h2>
+            <p class="tab-description">Tell us about your preferences to help us create the perfect itinerary for you.</p>
+            
+            <div class="preferences-form">
+              <!-- Budget -->
+              <div class="preference-section">
+                <div class="preference-header">
+                  <i class="fas fa-wallet"></i>
+                  <h3>Budget</h3>
+                </div>
+                <p>What's your budget range for this trip?</p>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input type="radio" id="budget-budget" name="budget" value="budget" checked>
+                    <label for="budget-budget">Budget-friendly</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="budget-medium" name="budget" value="medium">
+                    <label for="budget-medium">Mid-range</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="budget-luxury" name="budget" value="luxury">
+                    <label for="budget-luxury">Luxury</label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Activities -->
+              <div class="preference-section">
+                <div class="preference-header">
+                  <i class="fas fa-camera"></i>
+                  <h3>Activities</h3>
+                </div>
+                <p>What types of activities are you interested in?</p>
+                <div class="checkbox-grid">
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="activity-sightseeing" name="activities" value="sightseeing" checked>
+                    <label for="activity-sightseeing"><i class="fas fa-camera"></i> Sightseeing</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="activity-nature" name="activities" value="nature">
+                    <label for="activity-nature"><i class="fas fa-mountain"></i> Nature & Outdoors</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="activity-beach" name="activities" value="beach">
+                    <label for="activity-beach"><i class="fas fa-umbrella-beach"></i> Beach</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="activity-food" name="activities" value="food" checked>
+                    <label for="activity-food"><i class="fas fa-utensils"></i> Food & Dining</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="activity-nightlife" name="activities" value="nightlife">
+                    <label for="activity-nightlife"><i class="fas fa-music"></i> Nightlife</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="activity-culture" name="activities" value="culture" checked>
+                    <label for="activity-culture"><i class="fas fa-landmark"></i> Museums & Culture</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="activity-shopping" name="activities" value="shopping">
+                    <label for="activity-shopping"><i class="fas fa-shopping-bag"></i> Shopping</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="activity-adventure" name="activities" value="adventure">
+                    <label for="activity-adventure"><i class="fas fa-hiking"></i> Adventure</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="activity-spiritual" name="activities" value="spiritual">
+                    <label for="activity-spiritual"><i class="fas fa-om"></i> Spiritual</label>
+                  </div>
+                  <div class="checkbox-option">
+                    <input type="checkbox" id="activity-wellness" name="activities" value="wellness">
+                    <label for="activity-wellness"><i class="fas fa-spa"></i> Wellness</label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Accommodation -->
+              <div class="preference-section">
+                <div class="preference-header">
+                  <i class="fas fa-hotel"></i>
+                  <h3>Accommodation</h3>
+                </div>
+                <p>What type of accommodation do you prefer?</p>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input type="radio" id="accommodation-hotel" name="accommodation" value="hotel" checked>
+                    <label for="accommodation-hotel"><i class="fas fa-hotel"></i> Hotels</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="accommodation-hostel" name="accommodation" value="hostel">
+                    <label for="accommodation-hostel"><i class="fas fa-home"></i> Hostels</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="accommodation-apartment" name="accommodation" value="apartment">
+                    <label for="accommodation-apartment"><i class="fas fa-building"></i> Vacation Rentals</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="accommodation-resort" name="accommodation" value="resort">
+                    <label for="accommodation-resort"><i class="fas fa-umbrella-beach"></i> Resorts</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="accommodation-heritage" name="accommodation" value="heritage">
+                    <label for="accommodation-heritage"><i class="fas fa-landmark"></i> Heritage Hotels</label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Transportation -->
+              <div class="preference-section">
+                <div class="preference-header">
+                  <i class="fas fa-train"></i>
+                  <h3>Transportation</h3>
+                </div>
+                <p>How do you prefer to get around during your trip?</p>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input type="radio" id="transportation-public" name="transportation" value="public" checked>
+                    <label for="transportation-public"><i class="fas fa-train"></i> Public Transportation</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="transportation-rental" name="transportation" value="rental">
+                    <label for="transportation-rental"><i class="fas fa-car"></i> Rental Car</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="transportation-taxi" name="transportation" value="taxi">
+                    <label for="transportation-taxi"><i class="fas fa-taxi"></i> Taxis/Rideshares</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="transportation-private" name="transportation" value="private">
+                    <label for="transportation-private"><i class="fas fa-car-side"></i> Private Driver</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="transportation-flights" name="transportation" value="flights">
+                    <label for="transportation-flights"><i class="fas fa-plane"></i> Internal Flights</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Itinerary Tab -->
+        <div class="tab-pane" id="itinerary-tab">
+          <div class="tab-pane-content">
+            <div class="itinerary-header">
+              <h2>Your Travel Itinerary</h2>
+              <button id="toggle-map" class="btn btn-outline">
+                <i class="fas fa-map-marked-alt"></i>
+                Show location Map
+              </button>
+              <!-- TSP Route Optimizer Button -->
+              <a href="http://localhost:5173/" class="btn btn-primary mt-4" style="display:inline-block;" target="_blank" rel="noopener">
+                <i class="fas fa-route"></i>Use Route Optimizer
+              </a>
+            </div>
+            
+            <div id="map-container" class="map-container" style="display: none;">
+              <div id="map" class="map" style="height: 400px; min-height: 400px;"></div>
+              <div class="map-controls">
+                <h3>Transportation Mode</h3>
+                <div class="transport-buttons">
+                  <button class="transport-btn active" data-mode="DRIVING">
+                    <i class="fas fa-car"></i> Driving
+                  </button>
+                  <button class="transport-btn" data-mode="WALKING">
+                    <i class="fas fa-walking"></i> Walking
+                  </button>
+                  <button class="transport-btn" data-mode="TRANSIT">
+                    <i class="fas fa-train"></i> Transit
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="budget-summary">
+              <h3>Budget Estimate</h3>
+              <div class="budget-total">
+                <span>Total: ₹45,000</span>
+                <div class="currency-toggle">
+                  <button class="currency-btn active" data-currency="INR">₹ INR</button>
+                  <button class="currency-btn" data-currency="USD">$ USD</button>
+                </div>
+              </div>
+              
+              <div class="budget-breakdown">
+                <div class="budget-item">
+                  <div class="budget-item-label">
+                    <i class="fas fa-hotel"></i>
+                    <span>Accommodation</span>
+                  </div>
+                  <span class="budget-item-value">₹20,000</span>
+                  <div class="budget-progress">
+                    <div class="budget-progress-bar" style="width: 44%"></div>
+                  </div>
+                </div>
+                <div class="budget-item">
+                  <div class="budget-item-label">
+                    <i class="fas fa-utensils"></i>
+                    <span>Food & Dining</span>
+                  </div>
+                  <span class="budget-item-value">₹10,000</span>
+                  <div class="budget-progress">
+                    <div class="budget-progress-bar" style="width: 22%"></div>
+                  </div>
+                </div>
+                <div class="budget-item">
+                  <div class="budget-item-label">
+                    <i class="fas fa-bus"></i>
+                    <span>Transportation</span>
+                  </div>
+                  <span class="budget-item-value">₹8,000</span>
+                  <div class="budget-progress">
+                    <div class="budget-progress-bar" style="width: 18%"></div>
+                  </div>
+                </div>
+                <div class="budget-item">
+                  <div class="budget-item-label">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Activities</span>
+                  </div>
+                  <span class="budget-item-value">₹7,000</span>
+                  <div class="budget-progress">
+                    <div class="budget-progress-bar" style="width: 16%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="itinerary-tabs">
+              <button class="itinerary-tab-btn active" data-day="day-1">Day 1</button>
+              <button class="itinerary-tab-btn" data-day="day-2">Day 2</button>
+              <button class="itinerary-tab-btn" data-day="day-3">Day 3</button>
+              <button class="itinerary-tab-btn" data-day="day-4">Day 4</button>
+              <button class="itinerary-tab-btn" data-day="day-5">Day 5</button>
+            </div>
+            
+            <div class="itinerary-day-content active" id="day-1-content">
+              <div class="day-header">
+                <div>
+                  <h3>Monday, June 15, 2025</h3>
+                  <p class="day-location"><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+                </div>
+                <div class="day-weather">
+                  <i class="fas fa-sun"></i>
+                  <span>32°C</span>
+                </div>
+              </div>
+              
+              <div class="day-activities">
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-coffee"></i>
+                  </div>
+                  <div class="activity-details">
+                    <h4>Breakfast</h4>
+                    <div class="activity-meta">
+                      <span><i class="fas fa-clock"></i> 8:00 AM (1 hour)</span>
+                      <span><i class="fas fa-map-marker-alt"></i> Hotel</span>
+                    </div>
+                  </div>
+                  <div class="activity-actions">
+                    <button class="activity-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="activity-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+                
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-landmark"></i>
+                  </div>
+                  <div class="activity-details">
+                    <h4>Red Fort Visit</h4>
+                    <div class="activity-meta">
+                      <span><i class="fas fa-clock"></i> 10:00 AM (2 hours)</span>
+                      <span><i class="fas fa-map-marker-alt"></i> Netaji Subhash Marg, Lal Qila</span>
+                    </div>
+                  </div>
+                  <div class="activity-actions">
+                    <button class="activity-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="activity-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+                
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-utensils"></i>
+                  </div>
+                  <div class="activity-details">
+                    <h4>Lunch</h4>
+                    <div class="activity-meta">
+                      <span><i class="fas fa-clock"></i> 1:00 PM (1 hour)</span>
+                      <span><i class="fas fa-map-marker-alt"></i> Local Restaurant</span>
+                    </div>
+                  </div>
+                  <div class="activity-actions">
+                    <button class="activity-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="activity-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+                
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-monument"></i>
+                  </div>
+                  <div class="activity-details">
+                    <h4>India Gate Visit</h4>
+                    <div class="activity-meta">
+                      <span><i class="fas fa-clock"></i> 4:00 PM (1 hour)</span>
+                      <span><i class="fas fa-map-marker-alt"></i> Rajpath</span>
+                    </div>
+                  </div>
+                  <div class="activity-actions">
+                    <button class="activity-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="activity-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+                
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-utensils"></i>
+                  </div>
+                  <div class="activity-details">
+                    <h4>Dinner at Karim's</h4>
+                    <div class="activity-meta">
+                      <span><i class="fas fa-clock"></i> 7:00 PM (2 hours)</span>
+                      <span><i class="fas fa-map-marker-alt"></i> Jama Masjid</span>
+                    </div>
+                  </div>
+                  <div class="activity-actions">
+                    <button class="activity-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="activity-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="btn btn-outline add-activity-btn">
+                <i class="fas fa-plus"></i> Add Activity
+              </button>
+            </div>
+            
+            <!-- Other day contents would be similar but hidden by default -->
+            <div class="itinerary-day-content" id="day-2-content">
+              <!-- Day 2 content -->
+              <div class="day-header">
+                <div>
+                  <h3>Tuesday, June 16, 2025</h3>
+                  <p class="day-location"><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+                </div>
+                <div class="day-weather">
+                  <i class="fas fa-cloud-sun"></i>
+                  <span>30°C</span>
+                </div>
+              </div>
+              
+              <div class="day-activities">
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-coffee"></i>
+                  </div>
+                  <div class="activity-details">
+                    <h4>Breakfast</h4>
+                    <div class="activity-meta">
+                      <span><i class="fas fa-clock"></i> 8:00 AM (1 hour)</span>
+                      <span><i class="fas fa-map-marker-alt"></i> Hotel</span>
+                    </div>
+                  </div>
+                  <div class="activity-actions">
+                    <button class="activity-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="activity-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+                
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-landmark"></i>
+                  </div>
+                  <div class="activity-details">
+                    <h4>Qutub Minar Visit</h4>
+                    <div class="activity-meta">
+                      <span><i class="fas fa-clock"></i> 10:00 AM (2 hours)</span>
+                      <span><i class="fas fa-map-marker-alt"></i> Mehrauli</span>
+                    </div>
+                  </div>
+                  <div class="activity-actions">
+                    <button class="activity-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="activity-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="btn btn-outline add-activity-btn">
+                <i class="fas fa-plus"></i> Add Activity
+              </button>
+            </div>
+
+            <div class="itinerary-day-content" id="day-3-content">
+              <!-- Day 3 content -->
+               <button class="btn btn-outline add-activity-btn">
+                <i class="fas fa-plus"></i> Add Activity
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="planner-navigation">
+        <button id="prev-btn" class="btn btn-outline" disabled>
+          <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        
+        <div class="navigation-actions">
+          <button id="save-btn" class="btn btn-outline" style="display: none;">
+            <i class="fas fa-save"></i> Save
+          </button>
+          <button id="share-btn" class="btn btn-outline" style="display: none;">
+            <i class="fas fa-share-alt"></i> Share
+          </button>
+        </div>
+        
+        <button id="next-btn" class="btn btn-primary">
+          Next <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Indian Travel Planner</h3>
+          <p>Your ultimate guide to exploring the diverse beauty of India.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="planner.html">Trip Planner</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="itineraries.html">My Itineraries</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Travel Guide</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: info@indiantravelplanner.com</p>
+          <p>Phone: +91 123 456 7890</p>
+          <p>Address: 123 Travel Street, New Delhi, India</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Indian Travel Planner. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Load Leaflet JS before your own scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/weather.js"></script>
+</body>
+</html>

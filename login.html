@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Indian Travel Planner</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">Indian Travel Planner</a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="planner.html" class="nav-link">Trip Planner</a>
+          <a href="itineraries.html" class="nav-link">My Itineraries</a>
+          <a href="explore.html" class="nav-link">Explore</a>
+        </nav>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun light-icon"></i>
+            <i class="fas fa-moon dark-icon"></i>
+          </button>
+          <a href="login.html" class="btn btn-outline active">Login</a>
+          <a href="signup.html" class="btn btn-primary">Sign Up</a>
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu (hidden by default) -->
+      <div class="mobile-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="planner.html" class="mobile-link">Trip Planner</a>
+        <a href="itineraries.html" class="mobile-link">My Itineraries</a>
+        <a href="explore.html" class="mobile-link">Explore</a>
+        <div class="mobile-actions">
+          <a href="login.html" class="btn btn-outline btn-full active">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-full">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1>Login</h1>
+        <p>Enter your email and password to access your account</p>
+      </div>
+      <div class="auth-content">
+        <form id="login-form" class="auth-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your.email@example.com" required>
+          </div>
+          <div class="form-group">
+            <div class="password-header">
+              <label for="password">Password</label>
+              <a href="forgot-password.html" class="forgot-password">Forgot password?</a>
+            </div>
+            <input type="password" id="password" required>
+          </div>
+          <div id="login-error" class="error-message" style="display: none;"></div>
+          <button type="submit" class="btn btn-primary btn-full">Login</button>
+        </form>
+      </div>
+      <div class="auth-footer">
+        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/theme.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

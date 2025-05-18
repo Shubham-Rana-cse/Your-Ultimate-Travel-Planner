@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Travel Planner</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/featured.css">
+  <link rel="stylesheet" href="css/how-it-works.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">Indian Travel Planner</a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="planner.html" class="nav-link">Trip Planner</a>
+          <a href="itineraries.html" class="nav-link">My Itineraries</a>
+          <a href="explore.html" class="nav-link">Explore</a>
+        </nav>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun light-icon"></i>
+            <i class="fas fa-moon dark-icon"></i>
+          </button>
+          <a href="login.html" class="btn btn-outline">Login</a>
+          <a href="signup.html" class="btn btn-primary">Sign Up</a>
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu (hidden by default) -->
+      <div class="mobile-menu">
+        <a href="index.html" class="mobile-link active">Home</a>
+        <a href="planner.html" class="mobile-link">Trip Planner</a>
+        <a href="itineraries.html" class="mobile-link">My Itineraries</a>
+        <a href="explore.html" class="mobile-link">Explore</a>
+        <div class="mobile-actions">
+          <a href="login.html" class="btn btn-outline btn-full">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-full">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Discover Incredible India</h1>
+          <p>Plan your perfect journey across India with our interactive travel planner. From the Himalayas to the beaches of Goa, create custom itineraries and explore the rich diversity of Indian culture.</p>
+          <div class="hero-buttons">
+            <a href="planner.html" class="btn btn-primary btn-lg">Start Planning</a>
+            <a href="explore.html" class="btn btn-outline btn-lg">Explore Destinations</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="C:\Users\Shubham Rana\Desktop\Your ultimate travel companion\Source Code\Images\gandr-collage.jpg" alt="India travel destinations collage">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Destinations -->
+  <section class="featured">
+    <div class="container">
+      <h2 class="section-title">Popular Destinations</h2>
+      <div class="destinations-grid">
+        <a href="destination-detail.html?id=1" class="destination-card">
+          <div class="destination-image">
+            <img src="C:\Users\Shubham Rana\Desktop\Your ultimate travel companion\Source Code\Images\india-gate.jpeg" alt="Delhi">
+          </div>
+          <div class="destination-content">
+            <h3>Delhi</h3>
+            <p>India's capital with a perfect blend of historical monuments and modern architecture.</p>
+          </div>
+        </a>
+        <a href="destination-detail.html?id=2" class="destination-card">
+          <div class="destination-image">
+            <img src="C:\Users\Shubham Rana\Desktop\Your ultimate travel companion\Source Code\Images\havaMahal.jpg" alt="Jaipur">
+          </div>
+          <div class="destination-content">
+            <h3>Jaipur</h3>
+            <p>The Pink City known for its stunning palaces, forts, and vibrant culture.</p>
+          </div>
+        </a>
+        <a href="destination-detail.html?id=3" class="destination-card">
+          <div class="destination-image">
+            <img src="C:\Users\Shubham Rana\Desktop\Your ultimate travel companion\Source Code\Images\goaBeaches.jpg" alt="Goa">
+          </div>
+          <div class="destination-content">
+            <h3>Goa</h3>
+            <p>Beautiful beaches, vibrant nightlife, and Portuguese-influenced architecture.</p>
+          </div>
+        </a>
+        <a href="destination-detail.html?id=4" class="destination-card">
+          <div class="destination-image">
+            <img src="C:\Users\Shubham Rana\Desktop\Your ultimate travel companion\Source Code\Images\varansiGhat.jpg" alt="Varanasi">
+          </div>
+          <div class="destination-content">
+            <h3>Varanasi</h3>
+            <p>One of the world's oldest living cities with spiritual ghats along the Ganges.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weather Widget Section -->
+  <section class="weather-widget">
+    <div class="container">
+      <h2 class="section-title">Current Weather at Top Destinations</h2>
+      <div class="weather-cards" id="weather-container">
+        <!-- Weather cards will be populated by JavaScript -->
+        <div class="weather-card-placeholder">
+          <div class="spinner"></div>
+          <p>Loading weather data...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Choose Indian Destinations</h3>
+          <p>Select from hundreds of destinations across India, from bustling cities to serene mountains.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3>Set Your Dates</h3>
+          <p>Plan your trip duration and get real-time availability for accommodations and activities.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <i class="fas fa-compass"></i>
+          </div>
+          <h3>Customize Itinerary</h3>
+          <p>Build your perfect day-by-day plan with our drag-and-drop itinerary builder.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">
+            <i class="fas fa-share-alt"></i>
+          </div>
+          <h3>Share & Go</h3>
+          <p>Save your plans, share with friends, split expenses, and start your Indian adventure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flight & Hotel Search -->
+  <section class="booking-search">
+    <div class="container">
+      <h2 class="section-title">Find Flights & Hotels</h2>
+      <div class="booking-tabs">
+        <button class="booking-tab active" data-tab="flights">
+          <i class="fas fa-plane"></i> Flights
+        </button>
+        <button class="booking-tab" data-tab="hotels">
+          <i class="fas fa-hotel"></i> Hotels
+        </button>
+      </div>
+      
+      <div class="booking-content active" id="flights-tab">
+        <form id="flight-search-form" class="booking-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="flight-from">From</label>
+              <input type="text" id="flight-from" placeholder="City or Airport" required>
+            </div>
+            <div class="form-group">
+              <label for="flight-to">To</label>
+              <input type="text" id="flight-to" placeholder="City or Airport" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="flight-depart">Departure</label>
+              <input type="date" id="flight-depart" required>
+            </div>
+            <div class="form-group">
+              <label for="flight-return">Return</label>
+              <input type="date" id="flight-return">
+            </div>
+            <div class="form-group">
+              <label for="flight-passengers">Passengers</label>
+              <select id="flight-passengers" required>
+                <option value="1">1 Passenger</option>
+                <option value="2">2 Passengers</option>
+                <option value="3">3 Passengers</option>
+                <option value="4">4 Passengers</option>
+                <option value="5">5+ Passengers</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Search Flights</button>
+        </form>
+      </div>
+      
+      <div class="booking-content" id="hotels-tab">
+        <form id="hotel-search-form" class="booking-form">
+          <div class="form-row">
+            <div class="form-group form-group-large">
+              <label for="hotel-destination">Destination</label>
+              <input type="text" id="hotel-destination" placeholder="City, Region or Specific Hotel" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="hotel-checkin">Check-in</label>
+              <input type="date" id="hotel-checkin" required>
+            </div>
+            <div class="form-group">
+              <label for="hotel-checkout">Check-out</label>
+              <input type="date" id="hotel-checkout" required>
+            </div>
+            <div class="form-group">
+              <label for="hotel-guests">Guests</label>
+              <select id="hotel-guests" required>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5+ Guests</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Search Hotels</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to Plan Your Dream Trip?</h2>
+      <p>Create your personalized travel itinerary in minutes with our intuitive planner. Discover new places, find the best activities, and make memories that last a lifetime.</p>
+      <a href="planner.html" class="btn btn-primary btn-lg">Start Planning Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Indian Travel Planner</h3>
+          <p>Your ultimate guide to exploring the diverse beauty of India.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="planner.html">Trip Planner</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="itineraries.html">My Itineraries</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Travel Guide</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: info@indiantravelplanner.com</p>
+          <p>Phone: +91 123 456 7890</p>
+          <p>Address: 123 Travel Street, New Delhi, India</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Indian Travel Planner. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Itineraries - Indian Travel Planner</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/itineraries.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="index.html" class="logo">Indian Travel Planner</a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="planner.html" class="nav-link">Trip Planner</a>
+          <a href="itineraries.html" class="nav-link active">My Itineraries</a>
+          <a href="explore.html" class="nav-link">Explore</a>
+        </nav>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-sun light-icon"></i>
+            <i class="fas fa-moon dark-icon"></i>
+          </button>
+          <a href="login.html" class="btn btn-outline">Login</a>
+          <a href="signup.html" class="btn btn-primary">Sign Up</a>
+          <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu (hidden by default) -->
+      <div class="mobile-menu">
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="planner.html" class="mobile-link">Trip Planner</a>
+        <a href="itineraries.html" class="mobile-link active">My Itineraries</a>
+        <a href="explore.html" class="mobile-link">Explore</a>
+        <div class="mobile-actions">
+          <a href="login.html" class="btn btn-outline btn-full">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-full">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="itineraries-header">
+      <h1>My Itineraries</h1>
+      <a href="planner.html" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Create New Itinerary
+      </a>
+    </div>
+
+    <!-- Auth Check Message (shown when not logged in) -->
+    <div id="auth-check-message" class="auth-check-message" style="display: none;">
+      <div class="auth-check-content">
+        <i class="fas fa-lock auth-icon"></i>
+        <h2>Please log in to view your itineraries</h2>
+        <p>You need to be logged in to access your saved itineraries.</p>
+        <div class="auth-check-actions">
+          <a href="login.html" class="btn btn-primary">Login</a>
+          <a href="signup.html" class="btn btn-outline">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loading-indicator" class="loading-indicator">
+      <div class="spinner"></div>
+      <p>Loading your itineraries...</p>
+    </div>
+
+    <!-- Itineraries List -->
+    <div id="itineraries-list" class="itineraries-list" style="display: none;">
+      <!-- Itineraries will be loaded here dynamically -->
+    </div>
+
+    <!-- Empty State (shown when user has no itineraries) -->
+    <div id="empty-state" class="empty-state" style="display: none;">
+      <div class="empty-state-content">
+        <i class="fas fa-route empty-icon"></i>
+        <h2>No itineraries yet</h2>
+        <p>You haven't created any travel itineraries yet. Start planning your next adventure!</p>
+        <a href="planner.html" class="btn btn-primary">Create Your First Itinerary</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Indian Travel Planner</h3>
+          <p>Your ultimate guide to exploring the diverse beauty of India.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="planner.html">Trip Planner</a></li>
+            <li><a href="explore.html">Explore</a></li>
+            <li><a href="itineraries.html">My Itineraries</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Travel Guide</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: info@indiantravelplanner.com</p>
+          <p>Phone: +91 123 456 7890</p>
+          <p>Address: 123 Travel Street, New Delhi, India</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Indian Travel Planner. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/itineraries.js"></script>
+</body>
+</html>

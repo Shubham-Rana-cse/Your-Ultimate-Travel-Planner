@@ -1,0 +1,786 @@
+/* Trip Planner Styles */
+
+.planner-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 40px;
+}
+
+.planner-header h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.planner-header p {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-light);
+}
+
+.planner-card {
+  background-color: var(--background-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-bottom: 60px;
+  overflow: hidden;
+}
+
+/* Tabs */
+.planner-tabs {
+  display: flex;
+  background-color: var(--background-alt);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 15px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+  color: var(--primary-color);
+}
+
+.tab-btn.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+/* Tab Content */
+.tab-content {
+  padding: 30px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.tab-pane-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tab-pane-content h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.tab-description {
+  margin-bottom: 30px;
+  color: var(--text-light);
+}
+
+/* Destinations Tab */
+.search-container {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px;
+  padding-right: 50px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+}
+
+.selected-destinations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+  min-height: 40px;
+}
+
+.selected-destination {
+  display: flex;
+  align-items: center;
+  background-color: var(--background-alt);
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-size: 14px;
+}
+
+.remove-destination {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.remove-destination:hover {
+  color: var(--primary-color);
+}
+
+.popular-destinations {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.destination-option {
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.destination-option:hover {
+  transform: translateY(-5px);
+}
+
+.destination-option-image {
+  width: 100%;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.destination-option-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.destination-option p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.autocomplete-container {
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  z-index: 10;
+}
+
+.autocomplete-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.autocomplete-item:hover {
+  background-color: var(--background-alt);
+}
+
+/* Dates Tab */
+.dates-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.calendar-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.date-picker {
+  width: 100%;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.trip-summary {
+  flex: 1;
+  min-width: 300px;
+  background-color: var(--background-alt);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.trip-summary h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.summary-label {
+  font-weight: 500;
+}
+
+.summary-value {
+  color: var(--text-light);
+}
+
+.weather-forecast {
+  margin-top: 30px;
+}
+
+.destination-forecast {
+  background-color: var(--background-color);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.destination-forecast h4 {
+  margin-bottom: 10px;
+}
+
+.forecast-temps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.forecast-condition {
+  color: var(--text-light);
+}
+
+.weather-note {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.trip-tip {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Travelers Tab */
+.travelers-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.number-input {
+  display: flex;
+  align-items: center;
+}
+
+.number-input input {
+  width: 60px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.number-decrement,
+.number-increment {
+  width: 36px;
+  height: 36px;
+  background-color: var(--background-alt);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.number-decrement:hover,
+.number-increment:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.travelers-tips {
+  margin-top: 40px;
+  background-color: var(--background-alt);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.travelers-tips h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.travelers-tips ul li {
+  margin-bottom: 10px;
+  color: var(--text-light);
+}
+
+/* Preferences Tab */
+.preferences-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.preference-section {
+  margin-bottom: 40px;
+}
+
+.preference-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.preference-header i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+
+.preference-header h3 {
+  font-size: 20px;
+}
+
+.preference-section > p {
+  margin-bottom: 15px;
+  color: var(--text-light);
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio-option input {
+  margin-right: 8px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox-option input {
+  margin-right: 8px;
+}
+
+.checkbox-option label i {
+  margin-right: 5px;
+  color: var(--primary-color);
+}
+
+/* Itinerary Tab */
+.itinerary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.map-container {
+  margin-bottom: 30px;
+}
+
+.map {
+  height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.map-controls {
+  background-color: var(--background-alt);
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.map-controls h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.transport-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.transport-btn {
+  padding: 8px 12px;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.transport-btn.active,
+.transport-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.budget-summary {
+  background-color: var(--background-alt);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.budget-summary h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.budget-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.currency-toggle {
+  display: flex;
+  gap: 5px;
+}
+
+.currency-btn {
+  padding: 5px 10px;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.currency-btn.active,
+.currency-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.budget-breakdown {
+  margin-top: 20px;
+}
+
+.budget-item {
+  margin-bottom: 15px;
+}
+
+.budget-item-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.budget-item-label i {
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+
+.budget-item-value {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.budget-progress {
+  height: 6px;
+  background-color: var(--background-color);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.budget-progress-bar {
+  height: 100%;
+  background-color: var(--primary-color);
+}
+
+.itinerary-tabs {
+  display: flex;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.itinerary-tab-btn {
+  padding: 10px 20px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.itinerary-tab-btn:hover {
+  color: var(--primary-color);
+}
+
+.itinerary-tab-btn.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.itinerary-day-content {
+  display: none;
+}
+
+.itinerary-day-content.active {
+  display: block;
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.day-location {
+  color: var(--text-light);
+  margin-top: 5px;
+}
+
+.day-weather {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.day-weather i {
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+
+.day-activities {
+  margin-bottom: 20px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: var(--transition);
+}
+
+.activity-item:hover {
+  box-shadow: var(--shadow);
+}
+
+.activity-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.activity-details {
+  flex: 1;
+}
+
+.activity-details h4 {
+  margin-bottom: 5px;
+}
+
+.activity-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.activity-meta span {
+  display: flex;
+  align-items: center;
+}
+
+.activity-meta i {
+  margin-right: 5px;
+}
+
+.activity-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.activity-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-alt);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.activity-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.add-activity-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Navigation */
+.planner-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border-top: 1px solid var(--border-color);
+}
+
+.navigation-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .planner-tabs {
+    flex-direction: column;
+  }
+
+  .tab-btn {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: none;
+    border-left: 3px solid transparent;
+  }
+
+  .tab-btn.active {
+    border-bottom-color: transparent;
+    border-left-color: var(--primary-color);
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+  }
+
+  .tab-content {
+    padding: 20px 15px;
+  }
+
+  .dates-container,
+  .planner-navigation {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .map {
+    height: 300px;
+  }
+
+  .transport-buttons,
+  .itinerary-tabs {
+    flex-wrap: wrap;
+  }
+
+  .day-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .day-weather {
+    margin-top: 10px;
+  }
+
+  .activity-item {
+    flex-direction: column;
+  }
+
+  .activity-icon {
+    margin-bottom: 10px;
+  }
+
+  .activity-meta {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .activity-actions {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+/* Add at the end of planner.css for Flatpickr tweaks */
+.flatpickr-calendar {
+  border-radius: 12px !important;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.inRange {
+  background: #2563eb !important; /* Use your --primary-color if defined */
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+
+.flatpickr-day.today {
+  border-color: #2563eb !important;
+}
+
+#map {
+  height: 400px !important;
+  min-height: 400px !important;
+  width: 100%;
+  /* Optionally, add a border for debugging: */
+  /* border: 1px solid #ccc; */
+}
