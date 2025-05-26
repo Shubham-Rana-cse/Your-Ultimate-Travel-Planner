@@ -77,50 +77,106 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
+  // Function to fetch real-time flight prices
+  async function fetchFlightPrices(from, to, date) {
+    try {
+      // Using a free flight price API (replace with your preferred API)
+      const response = await fetch(
+        `https://api.aviationstack.com/v1/flights?access_key=YOUR_API_KEY&dep_iata=${from}&arr_iata=${to}&date=${date}`
+      );
+      const data = await response.json();
+      return data.data[0]?.price || null;
+    } catch (error) {
+      console.error("Error fetching flight prices:", error);
+      return null;
+    }
+  }
+
+  // Function to fetch real-time hotel prices
+  async function fetchHotelPrices(city, checkin, checkout) {
+    try {
+      // Using a free hotel price API (replace with your preferred API)
+      const response = await fetch(
+        `https://hotels4.p.rapidapi.com/properties/list?destinationId=${city}&checkIn=${checkin}&checkOut=${checkout}`,
+        {
+          headers: {
+            'X-RapidAPI-Key': 'YOUR_API_KEY',
+            'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
+          }
+        }
+      );
+      const data = await response.json();
+      return data.properties[0]?.price || null;
+    } catch (error) {
+      console.error("Error fetching hotel prices:", error);
+      return null;
+    }
+  }
+
   // Flight search form submission
-  const flightSearchForm = document.getElementById("flight-search-form")
-  flightSearchForm.addEventListener("submit", (e) => {
-    e.preventDefault()
+  const flightSearchForm = document.getElementById("flight-search-form");
+  flightSearchForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    // Get form values
-    const from = document.getElementById("flight-from").value
-    const to = document.getElementById("flight-to").value
-    const depart = document.getElementById("flight-depart").value
-    const returnDate = document.getElementById("flight-return").value
-    const passengers = document.getElementById("flight-passengers").value
+    const from = document.getElementById("flight-from").value;
+    const to = document.getElementById("flight-to").value;
+    const depart = document.getElementById("flight-depart").value;
+    const returnDate = document.getElementById("flight-return").value;
+    const passengers = document.getElementById("flight-passengers").value;
 
-    // In a real application, you would send this data to a backend API
-    // For demo purposes, we'll just log it and show an alert
-    console.log("Flight search:", { from, to, depart, returnDate, passengers })
+    // Show loading state
+    const submitBtn = flightSearchForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching...';
+    submitBtn.disabled = true;
 
-    alert(
-      `Searching for flights from ${from} to ${to} on ${depart}${returnDate ? ` with return on ${returnDate}` : ""} for ${passengers} passenger(s).`,
-    )
+    try {
+      const price = await fetchFlightPrices(from, to, depart);
+      if (price) {
+        alert(`Found flights starting from ₹${price * passengers}`);
+      } else {
+        alert("No flights found for the selected route and dates.");
+      }
+    } catch (error) {
+      console.error("Error searching flights:", error);
+      alert("Error searching flights. Please try again.");
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
 
-    // Redirect to a results page (in a real application)
-    // window.location.href = `flight-results.html?from=${from}&to=${to}&depart=${depart}&return=${returnDate}&passengers=${passengers}`;
-  })
+  // Hotel search form submission with real-time prices
+  const hotelSearchForm = document.getElementById("hotel-search-form");
+  hotelSearchForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  // Hotel search form submission
-  const hotelSearchForm = document.getElementById("hotel-search-form")
-  hotelSearchForm.addEventListener("submit", (e) => {
-    e.preventDefault()
+    const destination = document.getElementById("hotel-destination").value;
+    const checkin = document.getElementById("hotel-checkin").value;
+    const checkout = document.getElementById("hotel-checkout").value;
+    const guests = document.getElementById("hotel-guests").value;
 
-    // Get form values
-    const destination = document.getElementById("hotel-destination").value
-    const checkin = document.getElementById("hotel-checkin").value
-    const checkout = document.getElementById("hotel-checkout").value
-    const guests = document.getElementById("hotel-guests").value
+    // Show loading state
+    const submitBtn = hotelSearchForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching...';
+    submitBtn.disabled = true;
 
-    // In a real application, you would send this data to a backend API
-    // For demo purposes, we'll just log it and show an alert
-    console.log("Hotel search:", { destination, checkin, checkout, guests })
-
-    alert(`Searching for hotels in ${destination} from ${checkin} to ${checkout} for ${guests} guest(s).`)
-
-    // Redirect to a results page (in a real application)
-    // window.location.href = `hotel-results.html?destination=${destination}&checkin=${checkin}&checkout=${checkout}&guests=${guests}`;
-  })
+    try {
+      const price = await fetchHotelPrices(destination, checkin, checkout);
+      if (price) {
+        alert(`Found hotels starting from ₹${price * guests} per night`);
+      } else {
+        alert("No hotels found for the selected destination and dates.");
+      }
+    } catch (error) {
+      console.error("Error searching hotels:", error);
+      alert("Error searching hotels. Please try again.");
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
 
   // Populate popular Indian destinations for autocomplete
   const popularDestinations = [
