@@ -531,3 +531,75 @@ document.addEventListener("DOMContentLoaded", () => {
     return n + (s[(v - 20) % 10] || s[v] || s[0])
   }
 })
+
+// Add real-time budget calculation
+async function calculateBudget(destination, duration, travelers, preferences) {
+  // Base costs per person per day in INR
+  const baseCosts = {
+    budget: {
+      accommodation: 1500,
+      food: 800,
+      transport: 500,
+      activities: 700
+    },
+    midrange: {
+      accommodation: 4000,
+      food: 1500,
+      transport: 1000,
+      activities: 1500
+    },
+    luxury: {
+      accommodation: 10000,
+      food: 3000,
+      transport: 2000,
+      activities: 3000
+    }
+  };
+
+  // Fetch real-time currency exchange rates
+  const response = await fetch('https://api.exchangerate-api.com/v4/latest/INR');
+  const data = await response.json();
+  const usdRate = data.rates.USD;
+
+  // Calculate total costs
+  const budget = preferences.budget || 'midrange';
+  const costs = baseCosts[budget];
+  
+  const totalCost = {
+    accommodation: costs.accommodation * duration * travelers,
+    food: costs.food * duration * travelers,
+    transport: costs.transport * duration * travelers,
+    activities: costs.activities * duration * travelers
+  };
+
+  const total = Object.values(totalCost).reduce((a, b) => a + b, 0);
+
+  return {
+    inr: totalCost,
+    usd: {
+      accommodation: totalCost.accommodation * usdRate,
+      food: totalCost.food * usdRate,
+      transport: totalCost.transport * usdRate,
+      activities: totalCost.activities * usdRate,
+      total: total * usdRate
+    }
+  };
+}
+
+// Update the budget display in the UI
+async function updateBudgetDisplay(budget) {
+  const budgetTotal = document.querySelector('.budget-total span');
+  const budgetItems = document.querySelectorAll('.budget-item-value');
+  const progressBars = document.querySelectorAll('.budget-progress-bar');
+
+  // Update total
+  budgetTotal.textContent = `Total: ₹${budget.inr.total.toLocaleString()}`;
+
+  // Update individual items
+  const items = ['accommodation', 'food', 'transport', 'activities'];
+  items.forEach((item, index) => {
+    budgetItems[index].textContent = `₹${budget.inr[item].toLocaleString()}`;
+    const percentage = (budget.inr[item] / budget.inr.total) * 100;
+    progressBars[index].style.width = `${percentage}%`;
+  });
+}
